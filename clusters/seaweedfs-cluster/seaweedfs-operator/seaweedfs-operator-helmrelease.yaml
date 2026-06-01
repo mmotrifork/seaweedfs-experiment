@@ -12,6 +12,3 @@ spec:
         kind: HelmRepository
         name: seaweedfs-operator
         namespace: seaweedfs-operator
-  values:
-    webhook:
-      enabled: false
