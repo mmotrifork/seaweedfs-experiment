@@ -1,0 +1,17 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: seaweedfs-operator
+  namespace: seaweedfs-operator
+spec:
+  interval: 1h
+  chart:
+    spec:
+      chart: seaweedfs-operator
+      sourceRef:
+        kind: HelmRepository
+        name: seaweedfs-operator
+        namespace: seaweedfs-operator
+  values:
+    webhook:
+      enabled: false
