@@ -20,6 +20,8 @@ spec:
   # Volume servers
   volume:
     replicas: 1
+    requests:
+      storage: 2Gi
 
   # Filer servers with S3 and embedded IAM (recommended)
   # IAM API is now embedded in S3 by default (on the same port as S3: 8333)
