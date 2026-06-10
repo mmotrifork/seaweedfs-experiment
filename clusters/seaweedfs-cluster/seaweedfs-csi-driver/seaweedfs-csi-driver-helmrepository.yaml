@@ -1,0 +1,8 @@
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmRepository
+metadata:
+  name: seaweedfs-csi-driver
+  namespace: seaweedfs-csi-driver
+spec:
+  interval: 1h
+  url: https://seaweedfs.github.io/seaweedfs-csi-driver/helm

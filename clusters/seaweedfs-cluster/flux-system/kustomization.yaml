@@ -5,3 +5,4 @@ resources:
 - gotk-sync.yaml
 - seaweedfs-operator-sync.yaml
 - seaweedfs-sync.yaml
+- seaweedfs-csi-driver-sync.yaml
