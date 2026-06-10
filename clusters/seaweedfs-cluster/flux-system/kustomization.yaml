@@ -4,3 +4,4 @@ resources:
 - gotk-components.yaml
 - gotk-sync.yaml
 - seaweedfs-operator-sync.yaml
+- seaweedfs-sync.yaml
