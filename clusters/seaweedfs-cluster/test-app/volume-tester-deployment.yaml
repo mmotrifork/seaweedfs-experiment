@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: volume-tester
+  name: volume-tester
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: volume-tester
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: volume-tester
+    spec:
+      containers:
+      - image: busybox
+        name: busybox
+        command:
+          - sleep
+          - "3600"
+        volumeMounts:
+          - name: data-volume
+            mountPath: /data
+        resources: {}
+      volumes:
+        - name: data-volume
+          persistentVolumeClaim:
+            claimName: volume-tester-claim
+status: {}

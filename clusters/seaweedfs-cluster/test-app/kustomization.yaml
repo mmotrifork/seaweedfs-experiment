@@ -1,0 +1,5 @@
+resources:
+  - volume-tester-ns.yaml
+  - volume-tester-deployment.yaml
+  - volume-tester-pvc.yaml
+namespace: volume-tester

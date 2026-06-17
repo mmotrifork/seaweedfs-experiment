@@ -6,3 +6,4 @@ resources:
 - seaweedfs-operator-sync.yaml
 - seaweedfs-sync.yaml
 - seaweedfs-csi-driver-sync.yaml
+- test-app-sync.yaml
