@@ -7,3 +7,4 @@ resources:
 - seaweedfs-sync.yaml
 - seaweedfs-csi-driver-sync.yaml
 - test-app-sync.yaml
+- metrics-server-sync.yaml
