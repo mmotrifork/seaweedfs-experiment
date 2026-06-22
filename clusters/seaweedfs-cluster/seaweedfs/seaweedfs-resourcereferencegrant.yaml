@@ -1,0 +1,16 @@
+apiVersion: seaweed.seaweedfs.com/v1
+kind: ResourceReferenceGrant
+metadata:
+  name: allow-csi-driver
+  namespace: seaweedfs
+spec:
+  from:
+    # Every kind whose seaweedRef / clusterRef can target this cluster.
+    - group: seaweed.seaweedfs.com
+      kind: SeaweedCSIDriver
+      namespace: seaweedfs-csi-driver
+  to:
+    # An entry with no name permits every Seaweed in this namespace; set name to
+    # pin a single cluster.
+    - group: seaweed.seaweedfs.com
+      kind: Seaweed

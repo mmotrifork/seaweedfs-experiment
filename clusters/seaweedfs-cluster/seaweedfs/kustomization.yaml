@@ -3,3 +3,4 @@ kind: Kustomization
 resources:
   - seaweedfs-namespace.yaml
   - seaweedfs-seaweed.yaml
+  - seaweedfs-resourcereferencegrant.yaml

@@ -8,7 +8,26 @@ spec:
   chart:
     spec:
       chart: seaweedfs-operator
+      version: 0.1.30
       sourceRef:
         kind: HelmRepository
         name: seaweedfs-operator
         namespace: seaweedfs-operator
+  postRenderers:
+    - kustomize:
+        patches:
+          - patch: |
+              apiVersion: apps/v1
+              kind: Deployment
+              metadata:
+                name: seaweedfs-operator
+                namespace: seaweedfs-operator
+              spec:
+                template:
+                  spec:
+                    containers:
+                      - name: seaweedfs-operator 
+                        env:
+                          - name: ENABLE_CSI_DRIVER
+                            value: "true"
+            
