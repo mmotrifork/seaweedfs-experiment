@@ -20,6 +20,27 @@ spec:
       - image: test:1.0.0
         name: test
         imagePullPolicy: Never
+        env:
+          - name: S3__BucketName
+            value: test-app-bucket
+          - name: AWS__Region
+            value: test
+          - name: AWS__ServiceURL
+            value: http://seaweed-sample-s3.seaweedfs.svc.cluster.local:8333
+          - name: AWS_REQUEST_CHECKSUM_CALCULATION
+            value: "WHEN_REQUIRED"
+          - name: AWS_RESPONSE_CHECKSUM_VALIDATION
+            value: "WHEN_REQUIRED"
+          - name: AWS_ACCESS_KEY_ID
+            valueFrom:
+              secretKeyRef:
+                name: alice-s3-secret
+                key: accessKey
+          - name: AWS_SECRET_ACCESS_KEY
+            valueFrom:
+              secretKeyRef:
+                name: alice-s3-secret
+                key: secretKey
         volumeMounts:
           - name: data-volume
             mountPath: /data

@@ -9,5 +9,5 @@ spec:
     namespace: seaweedfs
   statements:
     - effect: Allow
-      actions: [s3:GetObject, s3:PutObject, s3:DeleteObject]
-      resources: [my-bucket/uploads/*]
+      actions: [s3:GetObject, s3:PutObject, s3:DeleteObject, s3:ListBucket]
+      resources: [test-app-bucket/uploads/*]
