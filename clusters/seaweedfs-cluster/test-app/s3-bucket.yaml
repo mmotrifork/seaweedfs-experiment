@@ -1,0 +1,13 @@
+apiVersion: seaweed.seaweedfs.com/v1
+kind: Bucket
+metadata:
+  name: test-app-bucket
+  namespace: test-app
+spec:
+  clusterRef:
+    name: seaweed-sample
+    namespace: seaweedfs
+  owner: alice
+  access:
+    - user: alice
+      actions: ["Read", "Write", "List", "Tagging", "Admin"]

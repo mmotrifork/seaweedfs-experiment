@@ -18,6 +18,9 @@ spec:
     - group: seaweed.seaweedfs.com
       kind: S3PolicyBinding
       namespace: test-app
+    - group: seaweed.seaweedfs.com
+      kind: Bucket
+      namespace: test-app
   to:
     # An entry with no name permits every Seaweed in this namespace; set name to
     # pin a single cluster.
