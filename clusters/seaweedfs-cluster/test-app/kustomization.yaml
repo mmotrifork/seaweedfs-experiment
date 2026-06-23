@@ -1,5 +1,9 @@
 resources:
-  - volume-tester-ns.yaml
-  - volume-tester-deployment.yaml
-  - volume-tester-pvc.yaml
-namespace: volume-tester
+  - s3-identity.yaml
+  - s3-credentials.yaml
+  - s3-policy.yaml
+  - s3-policybinding.yaml
+  - test-app-namespace.yaml
+  - test-app-deployment.yaml
+  - test-app-pvc.yaml
+namespace: test-app

@@ -1,0 +1,9 @@
+apiVersion: seaweed.seaweedfs.com/v1
+kind: S3Identity
+metadata:
+  name: alice
+  namespace: test-app
+spec:
+  seaweedRef: 
+    name: seaweed-sample
+    namespace: seaweedfs

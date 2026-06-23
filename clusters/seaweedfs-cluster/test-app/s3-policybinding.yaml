@@ -1,0 +1,14 @@
+apiVersion: seaweed.seaweedfs.com/v1
+kind: S3PolicyBinding
+metadata: 
+  name: alice-uploads
+  namespace: test-app
+spec:
+  seaweedRef: 
+    name: seaweed-sample
+    namespace: seaweedfs
+  policyRef: 
+    name: rw-uploads
+  subjects:
+    - kind: S3Identity
+      name: alice

@@ -2,18 +2,19 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: volume-tester
-  name: volume-tester
+    app: test-app
+  name: test-app
+  namespace: test-app
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: volume-tester
+      app: test-app
   strategy: {}
   template:
     metadata:
       labels:
-        app: volume-tester
+        app: test-app
     spec:
       containers:
       - image: test:1.0.0
@@ -26,5 +27,5 @@ spec:
       volumes:
         - name: data-volume
           persistentVolumeClaim:
-            claimName: volume-tester-claim
+            claimName: test-app-claim
 status: {}
