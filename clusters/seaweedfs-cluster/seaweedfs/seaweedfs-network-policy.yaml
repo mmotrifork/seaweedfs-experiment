@@ -1,0 +1,23 @@
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: allow-operator
+  namespace: seaweedfs
+spec:
+  endpointSelector:
+    matchLabels:
+      app.kubernetes.io/component: filer
+      app.kubernetes.io/instance: seaweed-sample
+      app.kubernetes.io/managed-by: seaweedfs-operator
+      app.kubernetes.io/name: seaweedfs
+      io.kubernetes.pod.namespace: seaweedfs
+  ingress:
+    - fromEndpoints:
+        - matchLabels:
+            app.kubernetes.io/instance: seaweedfs-operator
+            app.kubernetes.io/name: seaweedfs-operator
+            io.kubernetes.pod.namespace: seaweedfs-operator
+      toPorts:
+        - ports:
+            - port: "18888"
+              protocol: TCP
