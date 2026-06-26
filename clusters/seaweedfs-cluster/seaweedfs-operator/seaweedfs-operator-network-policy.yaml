@@ -1,0 +1,17 @@
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: kube-apiserver-access
+  namespace: seaweedfs-operator
+spec:
+  endpointSelector:
+    matchLabels:
+      app.kubernetes.io/instance: seaweedfs-operator
+      app.kubernetes.io/name: seaweedfs-operator
+  egress:
+  - toEntities:
+    - kube-apiserver
+    toPorts:
+    - ports:
+      - port: "6443"
+        protocol: TCP
