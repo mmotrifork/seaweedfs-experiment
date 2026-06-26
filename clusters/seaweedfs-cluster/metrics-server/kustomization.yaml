@@ -1,4 +1,5 @@
 resources:
+- metrics-server-network-policy.yaml
 - metrics-server-helmrepository.yaml
 - metrics-server-helmrelease.yaml
 - metrics-server-namespace.yaml
