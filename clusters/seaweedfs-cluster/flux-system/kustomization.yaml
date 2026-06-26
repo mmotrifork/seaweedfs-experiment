@@ -9,3 +9,13 @@ resources:
 - seaweedfs-csi-driver-sync.yaml
 - test-app-sync.yaml
 - metrics-server-sync.yaml
+
+patches:
+  - patch: |
+      - op: add
+        path: /spec/template/spec/containers/0/args/-
+        value: --requeue-dependency=2s
+    target:
+      kind: Deployment
+      name: kustomize-controller
+      namespace: flux-system
