@@ -10,6 +10,7 @@ docker ps --format "{{.Names}}" | xargs -I {} docker exec -i {} bash -c "sysctl 
 
 #Cilium
 cilium install --version 1.19.4
+cilium hubble enable --relay --ui
 cilium status --wait
 
 #Flux
