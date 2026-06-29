@@ -7,4 +7,5 @@ resources:
   - test-app-namespace.yaml
   - test-app-deployment.yaml
   - test-app-pvc.yaml
+  - test-app-network-policy.yaml
 namespace: test-app
