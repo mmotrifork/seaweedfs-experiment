@@ -5,6 +5,7 @@ resources:
   - seaweedfs-filer-network-policy.yaml
   - seaweedfs-s3-network-policy.yaml
   - seaweedfs-master-network-policy.yaml
+  - seaweedfs-volume-network-policy.yaml
   - seaweedfs-seaweed.yaml
   - seaweedfs-rrg-csi-driver.yaml
   - seaweedfs-rrg-test-app.yaml
