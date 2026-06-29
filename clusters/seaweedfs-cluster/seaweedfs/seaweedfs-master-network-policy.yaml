@@ -33,9 +33,15 @@ spec:
             app.kubernetes.io/managed-by: seaweedfs-operator
             app.kubernetes.io/name: seaweedfs
             io.kubernetes.pod.namespace: seaweedfs
+        - matchLabels:
+            app.kubernetes.io/component: volume
+            app.kubernetes.io/instance: seaweed-sample
+            app.kubernetes.io/managed-by: seaweedfs-operator
+            app.kubernetes.io/name: seaweedfs
+            io.kubernetes.pod.namespace: seaweedfs
       toPorts:
         - ports:
-            - port: "19333"
-              protocol: TCP
             - port: "9333"
+              protocol: TCP
+            - port: "19333"
               protocol: TCP
