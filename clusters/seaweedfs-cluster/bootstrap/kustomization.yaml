@@ -1,2 +1,3 @@
 resources:
 - global-network-policy.yaml
+- local-path-provisioner-network-policy.yaml
