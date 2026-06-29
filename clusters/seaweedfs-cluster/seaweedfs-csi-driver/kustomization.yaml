@@ -2,5 +2,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - seaweedfs-csi-driver-namespace.yaml
-  - seaweedfs-csi-driver-network-policy.yaml
+  - seaweedfs-csi-driver-network-policy-controller.yaml
+  - seaweedfs-csi-driver-network-policy-mount.yaml
+  - seaweedfs-csi-driver-network-policy-node.yaml
   - seaweedfs-csi-driver-seaweedcsidriver.yaml
