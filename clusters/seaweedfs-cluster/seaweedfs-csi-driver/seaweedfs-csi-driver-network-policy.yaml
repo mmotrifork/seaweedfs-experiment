@@ -1,0 +1,25 @@
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: mount-access
+  namespace: seaweedfs-csi-driver
+spec:
+  endpointSelector:
+    matchLabels:
+      app.kubernetes.io/component: mount
+      app.kubernetes.io/instance: seaweedfs
+      app.kubernetes.io/managed-by: seaweedfs-operator
+      app.kubernetes.io/name: seaweedfs-csi-driver
+      io.kubernetes.pod.namespace: seaweedfs-csi-driver
+  egress:
+    - toEndpoints:
+        - matchLabels:
+            app.kubernetes.io/component: filer
+            app.kubernetes.io/instance: seaweed-sample
+            app.kubernetes.io/managed-by: seaweedfs-operator
+            app.kubernetes.io/name: seaweedfs
+            io.kubernetes.pod.namespace: seaweedfs
+      toPorts:
+        - ports:
+            - port: "18888"
+              protocol: TCP
