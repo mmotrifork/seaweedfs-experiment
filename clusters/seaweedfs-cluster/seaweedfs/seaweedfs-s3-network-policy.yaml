@@ -15,7 +15,7 @@ spec:
     - toEndpoints:
         - matchLabels:
             app.kubernetes.io/component: filer
-            app.kubernetes.io/instance: seaweed-sample
+            app.kubernetes.io/instance: seaweedfs-sample
             app.kubernetes.io/managed-by: seaweedfs-operator
             app.kubernetes.io/name: seaweedfs
             io.kubernetes.pod.namespace: seaweedfs
