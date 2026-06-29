@@ -1,0 +1,41 @@
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: master-access
+  namespace: seaweedfs
+spec:
+  endpointSelector:
+    matchLabels:
+      app.kubernetes.io/component: master
+      app.kubernetes.io/instance: seaweed-sample
+      app.kubernetes.io/managed-by: seaweedfs-operator
+      app.kubernetes.io/name: seaweedfs
+      io.kubernetes.pod.namespace: seaweedfs
+  egress:
+    - toEndpoints:
+        - matchLabels:
+            app.kubernetes.io/component: master
+            app.kubernetes.io/instance: seaweed-sample
+            app.kubernetes.io/managed-by: seaweedfs-operator
+            app.kubernetes.io/name: seaweedfs
+            io.kubernetes.pod.namespace: seaweedfs
+      toPorts:
+        - ports:
+            - port: "19333"
+              protocol: TCP
+            - port: "9333"
+              protocol: TCP
+  ingress:
+    - fromEndpoints:
+        - matchLabels:
+            app.kubernetes.io/component: master
+            app.kubernetes.io/instance: seaweed-sample
+            app.kubernetes.io/managed-by: seaweedfs-operator
+            app.kubernetes.io/name: seaweedfs
+            io.kubernetes.pod.namespace: seaweedfs
+      toPorts:
+        - ports:
+            - port: "19333"
+              protocol: TCP
+            - port: "9333"
+              protocol: TCP
