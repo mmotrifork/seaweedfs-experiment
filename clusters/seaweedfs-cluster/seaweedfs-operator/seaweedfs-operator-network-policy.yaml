@@ -28,3 +28,16 @@ spec:
         protocol: TCP
       - port: "18888"
         protocol: TCP
+  - toEndpoints:
+    - matchLabels:
+        app.kubernetes.io/component: master
+        app.kubernetes.io/managed-by: seaweedfs-operator
+      matchExpressions:
+      - key: io.kubernetes.pod.namespace
+        operator: Exists
+    toPorts:
+    - ports:
+      - port: "9333"
+        protocol: TCP
+      - port: "19333"
+        protocol: TCP

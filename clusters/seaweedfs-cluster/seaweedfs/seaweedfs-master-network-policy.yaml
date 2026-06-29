@@ -28,6 +28,10 @@ spec:
   ingress:
     - fromEndpoints:
         - matchLabels:
+            app.kubernetes.io/instance: seaweedfs-operator
+            app.kubernetes.io/name: seaweedfs-operator
+            io.kubernetes.pod.namespace: seaweedfs-operator
+        - matchLabels:
             app.kubernetes.io/instance: seaweed-sample
             app.kubernetes.io/managed-by: seaweedfs-operator
             app.kubernetes.io/name: seaweedfs
