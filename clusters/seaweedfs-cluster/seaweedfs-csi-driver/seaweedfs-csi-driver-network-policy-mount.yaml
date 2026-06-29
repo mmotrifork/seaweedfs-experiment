@@ -21,5 +21,7 @@ spec:
             io.kubernetes.pod.namespace: seaweedfs
       toPorts:
         - ports:
+            - port: "8888"
+              protocol: TCP
             - port: "18888"
               protocol: TCP
