@@ -49,5 +49,5 @@ spec:
         - ports:
             - port: "8444"
               protocol: TCP
-            - port: "18844"
+            - port: "18444"
               protocol: TCP
