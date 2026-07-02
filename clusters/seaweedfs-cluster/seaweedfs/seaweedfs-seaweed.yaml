@@ -15,7 +15,7 @@ spec:
     kind: DaemonSet
     hostPath:
       - path: /var/lib/seaweedfs/data0
-        maxVolumeCount: 100
+        maxVolumeCount: 0 #Fill
   filer:
     replicas: 2
     config: |
