@@ -1,0 +1,17 @@
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: kube-apiserver-access-job
+  namespace: seaweedfs-operator
+spec:
+  endpointSelector:
+    matchLabels:
+      batch.kubernetes.io/job-name: seaweedfs-operator-create-webhook-certificates
+      job-name: seaweedfs-operator-create-webhook-certificates
+  egress:
+  - toEntities:
+    - kube-apiserver
+    toPorts:
+    - ports:
+      - port: "6443"
+        protocol: TCP
