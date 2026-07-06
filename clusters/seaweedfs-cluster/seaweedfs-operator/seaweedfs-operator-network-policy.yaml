@@ -55,3 +55,9 @@ spec:
     - ports:
       - port: "9443"
         protocol: TCP
+  - fromEntities:
+      - remote-node
+    toPorts:
+    - ports:
+      - port: "9443"
+        protocol: TCP
