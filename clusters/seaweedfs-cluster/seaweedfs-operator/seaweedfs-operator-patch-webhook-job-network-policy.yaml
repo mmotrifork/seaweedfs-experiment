@@ -9,6 +9,12 @@ spec:
       batch.kubernetes.io/job-name: seaweedfs-operator-patch-mutating-webhook
       job-name: seaweedfs-operator-patch-mutating-webhook
   egress:
+  - toEntities:
+    - kube-apiserver
+    toPorts:
+    - ports:
+      - port: "6443"
+        protocol: TCP
   - toEndpoints:
       - matchLabels:
           app.kubernetes.io/instance: seaweedfs-operator
