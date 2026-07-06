@@ -1,0 +1,26 @@
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: patch-validating-webhook-job-access
+  namespace: seaweedfs-operator
+spec:
+  endpointSelector:
+    matchLabels:
+      batch.kubernetes.io/job-name: seaweedfs-operator-patch-validating-webhook
+      job-name: seaweedfs-operator-patch-validating-webhook
+  egress:
+  - toEntities:
+    - kube-apiserver
+    toPorts:
+    - ports:
+      - port: "6443"
+        protocol: TCP
+  - toEndpoints:
+      - matchLabels:
+          app.kubernetes.io/instance: seaweedfs-operator
+          app.kubernetes.io/name: seaweedfs-operator
+          io.kubernetes.pod.namespace: seaweedfs-operator
+    toPorts:
+    - ports:
+      - port: "9443"
+        protocol: TCP

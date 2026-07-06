@@ -1,7 +1,7 @@
 apiVersion: cilium.io/v2
 kind: CiliumNetworkPolicy
 metadata:
-  name: patch-webhook-job-access
+  name: patch--mutating-webhook-job-access
   namespace: seaweedfs-operator
 spec:
   endpointSelector:

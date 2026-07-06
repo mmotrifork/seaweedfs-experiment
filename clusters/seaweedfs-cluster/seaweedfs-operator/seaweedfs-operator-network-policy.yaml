@@ -47,6 +47,10 @@ spec:
         batch.kubernetes.io/job-name: seaweedfs-operator-patch-mutating-webhook
         job-name: seaweedfs-operator-patch-mutating-webhook
         io.kubernetes.pod.namespace: seaweedfs-operator
+    - matchLabels:
+        batch.kubernetes.io/job-name: seaweedfs-operator-patch-validating-webhook
+        job-name: seaweedfs-operator-patch-validating-webhook
+        io.kubernetes.pod.namespace: seaweedfs-operator
     toPorts:
     - ports:
       - port: "9443"

@@ -6,4 +6,5 @@ resources:
   - seaweedfs-operator-helmrepository.yaml
   - seaweedfs-operator-helmrelease.yaml
   - seaweedfs-operator-create-webhook-job-network-policy.yaml
-  - seaweedfs-operator-patch-webhook-job-network-policy.yaml
+  - seaweedfs-operator-patch-mutating-webhook-job-network-policy.yaml
+  - seaweedfs-operator-patch-validating-webhook-job-network-policy.yaml
