@@ -1,7 +1,7 @@
 apiVersion: cilium.io/v2
 kind: CiliumNetworkPolicy
 metadata:
-  name: kube-apiserver-access-job
+  name: create-webhook-job-access
   namespace: seaweedfs-operator
 spec:
   endpointSelector:

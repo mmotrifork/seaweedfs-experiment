@@ -1,7 +1,7 @@
 apiVersion: cilium.io/v2
 kind: CiliumNetworkPolicy
 metadata:
-  name: kube-apiserver-access
+  name: seaweedfs-operator-access
   namespace: seaweedfs-operator
 spec:
   endpointSelector:
@@ -40,4 +40,14 @@ spec:
       - port: "9333"
         protocol: TCP
       - port: "19333"
+        protocol: TCP
+  ingress:
+  - fromEndpoints:
+    - matchLabels:
+        batch.kubernetes.io/job-name: seaweedfs-operator-patch-mutating-webhook
+        job-name: seaweedfs-operator-patch-mutating-webhook
+        io.kubernetes.pod.namespace: seaweedfs-operator
+    toPorts:
+    - ports:
+      - port: "9443"
         protocol: TCP
