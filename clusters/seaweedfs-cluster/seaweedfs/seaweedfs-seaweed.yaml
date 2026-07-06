@@ -10,6 +10,16 @@ spec:
     replicas: 3
     volumeSizeLimitMB: 1024
     defaultReplication: "001"   # 2 copies, on 2 different servers
+    podSecurityContext:
+      runAsNonRoot: true
+      runAsUser: 1000
+      seccompProfile:
+        type: RuntimeDefault
+    containerSecurityContext:
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop:
+          - ALL
   volume:
     replicas: 0
     kind: DaemonSet
@@ -18,11 +28,41 @@ spec:
         maxVolumeCount: 0 #Fill
     extraArgs:
       - "-ip.bind=0.0.0.0" # To allow port forwarding from the host to the container
+    podSecurityContext:
+      runAsNonRoot: true
+      runAsUser: 1000
+      seccompProfile:
+        type: RuntimeDefault
+    containerSecurityContext:
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop:
+          - ALL
   filer:
     replicas: 2
     config: |
       [leveldb2]
       enabled = true
       dir = "/data/filerldb2"
+    podSecurityContext:
+      runAsNonRoot: true
+      runAsUser: 1000
+      seccompProfile:
+        type: RuntimeDefault
+    containerSecurityContext:
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop:
+          - ALL
   s3:
     replicas: 1
+    podSecurityContext:
+      runAsNonRoot: true
+      runAsUser: 1000
+      seccompProfile:
+        type: RuntimeDefault
+    containerSecurityContext:
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop:
+          - ALL
