@@ -18,7 +18,9 @@ spec:
             app.kubernetes.io/instance: seaweed-sample
             app.kubernetes.io/managed-by: seaweedfs-operator
             app.kubernetes.io/name: seaweedfs
-            io.kubernetes.pod.namespace: seaweedfs
+          matchExpressions:
+          - key: io.kubernetes.pod.namespace
+            operator: Exists
       toPorts:
         - ports:
             - port: "8444"
@@ -31,7 +33,9 @@ spec:
             app.kubernetes.io/instance: seaweed-sample
             app.kubernetes.io/managed-by: seaweedfs-operator
             app.kubernetes.io/name: seaweedfs
-            io.kubernetes.pod.namespace: seaweedfs
+          matchExpressions:
+          - key: io.kubernetes.pod.namespace
+            operator: Exists
       toPorts:
         - ports:
             - port: "8888"

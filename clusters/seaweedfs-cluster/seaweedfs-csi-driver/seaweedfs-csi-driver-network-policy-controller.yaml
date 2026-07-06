@@ -18,3 +18,18 @@ spec:
     - ports:
       - port: "6443"
         protocol: TCP
+  - toEndpoints:
+    - matchLabels:
+        app.kubernetes.io/component: filer
+        app.kubernetes.io/instance: seaweed-sample
+        app.kubernetes.io/managed-by: seaweedfs-operator
+        app.kubernetes.io/name: seaweedfs
+      matchExpressions:
+      - key: io.kubernetes.pod.namespace
+        operator: Exists
+    toPorts:
+    - ports:
+      - port: "8888"
+        protocol: TCP
+      - port: "18888"
+        protocol: TCP
