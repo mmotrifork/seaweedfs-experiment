@@ -21,11 +21,14 @@ spec:
         drop:
           - ALL
   volume:
-    replicas: 0
-    kind: DaemonSet
-    hostPath:
-      - path: /var/lib/seaweedfs/data0
-        maxVolumeCount: 0 #Fill
+    replicas: 3
+    # kind: DaemonSet
+    requests:
+      storage: 10Gi
+    storageClassName: standard
+    # hostPath:
+    #   - path: /var/lib/seaweedfs/data0
+    #     maxVolumeCount: 0 #Fill
     extraArgs:
       - "-ip.bind=0.0.0.0" # To allow port forwarding from the host to the container
     podSecurityContext:
