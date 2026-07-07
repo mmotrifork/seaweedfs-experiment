@@ -69,3 +69,33 @@ spec:
       capabilities:
         drop:
           - ALL
+  admin:
+    podSecurityContext:
+      runAsNonRoot: true
+      runAsUser: 1000
+      seccompProfile:
+        type: RuntimeDefault
+    containerSecurityContext:
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop:
+          - ALL
+  worker:
+    replicas: 2
+    jobType: "all"
+    maxExecute: 4
+    persistence:
+      enabled: true
+      resources:
+        requests:
+          storage: 1Gi
+    podSecurityContext:
+      runAsNonRoot: true
+      runAsUser: 1000
+      seccompProfile:
+        type: RuntimeDefault
+    containerSecurityContext:
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop:
+          - ALL
