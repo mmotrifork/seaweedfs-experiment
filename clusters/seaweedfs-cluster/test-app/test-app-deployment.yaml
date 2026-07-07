@@ -16,10 +16,20 @@ spec:
       labels:
         app: test-app
     spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        seccompProfile:
+          type: RuntimeDefault
       containers:
       - image: test:1.0.0
         name: test
         imagePullPolicy: Never
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+              - ALL
         env:
           - name: S3__BucketName
             value: test-app-bucket
