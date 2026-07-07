@@ -41,6 +41,12 @@ spec:
             app.kubernetes.io/managed-by: seaweedfs-operator
             app.kubernetes.io/name: seaweedfs
             io.kubernetes.pod.namespace: seaweedfs
+        - matchLabels:
+            app.kubernetes.io/component: admin
+            app.kubernetes.io/instance: seaweed-sample
+            app.kubernetes.io/managed-by: seaweedfs-operator
+            app.kubernetes.io/name: seaweedfs
+            io.kubernetes.pod.namespace: seaweedfs
       toPorts:
         - ports:
             - port: "8888"
