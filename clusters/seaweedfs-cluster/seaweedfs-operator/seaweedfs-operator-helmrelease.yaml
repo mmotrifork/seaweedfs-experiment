@@ -13,6 +13,10 @@ spec:
         kind: HelmRepository
         name: seaweedfs-operator
         namespace: seaweedfs-operator
+  values:
+    podSecurityContext:
+      seccompProfile:
+        type: RuntimeDefault
   postRenderers:
     - kustomize:
         patches:
