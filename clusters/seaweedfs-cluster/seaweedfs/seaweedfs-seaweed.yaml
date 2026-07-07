@@ -70,7 +70,6 @@ spec:
         drop:
           - ALL
   admin:
-    replicas: 2
     podSecurityContext:
       runAsNonRoot: true
       runAsUser: 1000
