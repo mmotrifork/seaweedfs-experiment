@@ -22,6 +22,9 @@ spec:
         - matchLabels:
             app: test-app
             io.kubernetes.pod.namespace: test-app
+        - matchLabels:
+            app: test-app-intruder
+            io.kubernetes.pod.namespace: test-app-intruder
       toPorts:
         - ports:
             - port: "8333"
