@@ -1,0 +1,28 @@
+apiVersion: seaweed.seaweedfs.com/v1
+kind: ResourceReferenceGrant
+metadata:
+  name: allow-s3-test-app-intruder
+  namespace: seaweedfs
+spec:
+  from:
+    # Every kind whose seaweedRef / clusterRef can target this cluster.
+    - group: seaweed.seaweedfs.com
+      kind: S3Identity
+      namespace: test-app-intruder
+    - group: seaweed.seaweedfs.com
+      kind: S3Credentials
+      namespace: test-app-intruder
+    - group: seaweed.seaweedfs.com
+      kind: S3Policy
+      namespace: test-app-intruder
+    - group: seaweed.seaweedfs.com
+      kind: S3PolicyBinding
+      namespace: test-app-intruder
+    - group: seaweed.seaweedfs.com
+      kind: Bucket
+      namespace: test-app-intruder
+  to:
+    # An entry with no name permits every Seaweed in this namespace; set name to
+    # pin a single cluster.
+    - group: seaweed.seaweedfs.com
+      kind: Seaweed

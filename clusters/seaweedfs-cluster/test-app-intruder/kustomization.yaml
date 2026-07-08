@@ -1,0 +1,10 @@
+resources:
+  - s3-identity.yaml
+  - s3-credentials.yaml
+  - s3-policy.yaml
+  - s3-policybinding.yaml
+  - test-app-intruder-namespace.yaml
+  - test-app-intruder-network-policy.yaml
+  - test-app-intruder-deployment.yaml
+  - test-app-intruder-pvc.yaml
+namespace: test-app-intruder

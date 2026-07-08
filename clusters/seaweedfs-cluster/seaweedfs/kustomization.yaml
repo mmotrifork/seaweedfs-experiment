@@ -11,3 +11,4 @@ resources:
   - seaweedfs-seaweed.yaml
   - seaweedfs-rrg-csi-driver.yaml
   - seaweedfs-rrg-test-app.yaml
+  - seaweedfs-rrg-test-app-intruder.yaml

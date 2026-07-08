@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: test-app-intruder
+  name: test-app-intruder
+  namespace: test-app-intruder
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: test-app-intruder
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: test-app-intruder
+    spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+      - image: test:1.0.0
+        name: test
+        imagePullPolicy: Never
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+              - ALL
+        env:
+          - name: S3__BucketName
+            value: test-app-bucket
+          - name: AWS__Region
+            value: test
+          - name: AWS__ServiceURL
+            value: http://seaweed-sample-s3.seaweedfs.svc.cluster.local:8333
+          - name: AWS_REQUEST_CHECKSUM_CALCULATION
+            value: "WHEN_REQUIRED"
+          - name: AWS_RESPONSE_CHECKSUM_VALIDATION
+            value: "WHEN_REQUIRED"
+          - name: AWS_ACCESS_KEY_ID
+            valueFrom:
+              secretKeyRef:
+                name: alice-s3-secret
+                key: accessKey
+          - name: AWS_SECRET_ACCESS_KEY
+            valueFrom:
+              secretKeyRef:
+                name: alice-s3-secret
+                key: secretKey
+        volumeMounts:
+          - name: data-volume
+            mountPath: /data
+        resources: {}
+      volumes:
+        - name: data-volume
+          persistentVolumeClaim:
+            claimName: test-app-intruder-claim
+status: {}

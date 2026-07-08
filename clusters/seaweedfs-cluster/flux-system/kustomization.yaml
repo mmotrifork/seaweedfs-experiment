@@ -9,6 +9,7 @@ resources:
 - seaweedfs-csi-driver-sync.yaml
 - test-app-sync.yaml
 - metrics-server-sync.yaml
+- test-app-intruder-sync.yaml
 
 patches:
   - patch: |

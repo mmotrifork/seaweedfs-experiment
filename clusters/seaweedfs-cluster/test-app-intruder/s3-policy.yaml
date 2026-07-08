@@ -1,0 +1,13 @@
+apiVersion: seaweed.seaweedfs.com/v1
+kind: S3Policy
+metadata: 
+  name: rw-uploads-intruder
+  namespace: test-app-intruder
+spec:
+  seaweedRef: 
+    name: seaweed-sample
+    namespace: seaweedfs
+  statements:
+    - effect: Allow
+      actions: [s3:GetObject, s3:PutObject, s3:DeleteObject, s3:ListBucket]
+      resources: [test-app-bucket/uploads/*]

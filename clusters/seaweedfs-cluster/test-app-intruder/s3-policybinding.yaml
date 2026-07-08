@@ -1,0 +1,14 @@
+apiVersion: seaweed.seaweedfs.com/v1
+kind: S3PolicyBinding
+metadata: 
+  name: alice-uploads-intruder
+  namespace: test-app-intruder
+spec:
+  seaweedRef: 
+    name: seaweed-sample
+    namespace: seaweedfs
+  policyRef: 
+    name: rw-uploads-intruder
+  subjects:
+    - kind: S3Identity
+      name: alice-intruder
