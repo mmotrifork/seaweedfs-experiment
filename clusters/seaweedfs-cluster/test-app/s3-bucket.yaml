@@ -7,7 +7,7 @@ spec:
   clusterRef:
     name: seaweed-sample
     namespace: seaweedfs
-  owner: alice
+  # owner: alice
   access:
     - user: alice
       actions: ["Read", "Write", "List", "Tagging", "Admin"]
