@@ -52,3 +52,16 @@ spec:
               protocol: TCP
             - port: "18888"
               protocol: TCP
+    - toEndpoints:
+        - matchLabels:
+            app.kubernetes.io/component: volume
+            app.kubernetes.io/instance: seaweed-sample
+            app.kubernetes.io/managed-by: seaweedfs-operator
+            app.kubernetes.io/name: seaweedfs
+            io.kubernetes.pod.namespace: seaweedfs
+      toPorts:
+        - ports:
+            - port: "8444"
+              protocol: TCP
+            - port: "18444"
+              protocol: TCP
