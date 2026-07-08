@@ -11,3 +11,5 @@ spec:
   access:
     - user: alice
       actions: ["Read", "Write", "List", "Tagging", "Admin"]
+    - user: alice-intruder
+      actions: ["Read", "Write", "List", "Tagging", "Admin"]
