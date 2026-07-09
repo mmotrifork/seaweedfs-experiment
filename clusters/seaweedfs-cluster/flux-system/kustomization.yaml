@@ -4,6 +4,7 @@ resources:
 - bootstrap-sync.yaml
 - gotk-components.yaml
 - gotk-sync.yaml
+- kyverno-sync.yaml
 - seaweedfs-operator-sync.yaml
 - seaweedfs-sync.yaml
 - seaweedfs-csi-driver-sync.yaml
