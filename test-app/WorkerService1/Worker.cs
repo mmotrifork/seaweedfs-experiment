@@ -15,12 +15,20 @@ public class Worker(ILogger<Worker> logger, IAmazonS3 s3, IConfiguration configu
                 logger.LogInformation("Worker {machineId} running at: {time}", Environment.MachineName, DateTimeOffset.Now);
             }
 
-            var bucketsResponse = await s3.ListBucketsAsync(stoppingToken);
-            var buckets = bucketsResponse.Buckets.Select(b => b.BucketName);
-            if (logger.IsEnabled(LogLevel.Information))
-            {
-                logger.LogInformation("S3 Buckets available: {buckets}", buckets);
-            }
+            // try
+            // {
+            //     var bucketsResponse = await s3.ListBucketsAsync(stoppingToken);
+            //     var buckets = bucketsResponse.Buckets.Select(b => b.BucketName);
+            //     if (logger.IsEnabled(LogLevel.Information))
+            //     {
+            //         logger.LogInformation("S3 Buckets available: {buckets}", buckets);
+            //     }
+            // }
+            // catch (Exception e)
+            // {
+            //     Console.WriteLine(e);
+            //     throw;
+            // }
             
             var bucketName = configuration["S3:BucketName"];
             var readRequest = new GetObjectRequest
