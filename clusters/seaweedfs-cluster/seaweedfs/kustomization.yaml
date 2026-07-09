@@ -12,3 +12,5 @@ resources:
   - seaweedfs-rrg-csi-driver.yaml
   - seaweedfs-rrg-test-app.yaml
   - seaweedfs-rrg-test-app-intruder.yaml
+  - validation-policy-bucket-name.yaml
+  - validation-policy-bucket-reference-s3-policy.yaml

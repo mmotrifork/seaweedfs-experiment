@@ -1,0 +1,21 @@
+apiVersion: policies.kyverno.io/v1
+kind: ValidatingPolicy
+metadata:
+  name: seaweedfs-bucket-name-prefix
+spec:
+  validationActions:
+    - Deny
+  matchConstraints:
+    resourceRules:
+      - apiGroups: ["seaweed.seaweedfs.com"]
+        apiVersions: ["v1"]
+        operations: ["CREATE", "UPDATE"]
+        resources: ["buckets"]
+  variables:
+    - name: expectedPrefix
+      expression: "object.metadata.namespace + '-'"
+  validations:
+    - expression: "object.metadata.name.startsWith(variables.expectedPrefix)"
+      messageExpression: >-
+        "Bucket name '" + object.metadata.name + "' must be prefixed with its namespace name ('" +
+        variables.expectedPrefix + "')"

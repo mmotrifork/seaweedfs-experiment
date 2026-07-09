@@ -1,0 +1,36 @@
+apiVersion: policies.kyverno.io/v1
+kind: ValidatingPolicy
+metadata:
+  name: seaweedfs-s3policy-bucket-prefix
+spec:
+  validationActions:
+    - Deny
+  matchConstraints:
+    resourceRules:
+      - apiGroups: ["seaweed.seaweedfs.com"]
+        apiVersions: ["v1"]
+        operations: ["CREATE", "UPDATE"]
+        resources: ["s3policies"]
+  variables:
+    - name: prefix
+      expression: "object.metadata.namespace + '-'"
+  validations:
+    # 1. If authored as structured statements, every resource entry must
+    #    reference a bucket prefixed with the policy's own namespace.
+    - message: >-
+        Every entry in spec.statements[].resources must reference a bucket
+        prefixed with this S3Policy's namespace.
+      expression: >-
+        !has(object.spec.statements) ||
+        object.spec.statements.all(s,
+          !has(s.resources) || s.resources.all(r,
+            (r.startsWith('arn:aws:s3:::') ? r.substring(13) : r).startsWith(variables.prefix)
+          )
+        )
+
+    # 2. Raw policyDocument (opaque JSON string) can't be reliably parsed
+    #    and checked with CEL, so it's disallowed to keep this policy enforceable.
+    - message: >-
+        spec.policyDocument (raw JSON) is not allowed here because its bucket
+        references can't be validated. Use spec.statements instead.
+      expression: "!has(object.spec.policyDocument)"
