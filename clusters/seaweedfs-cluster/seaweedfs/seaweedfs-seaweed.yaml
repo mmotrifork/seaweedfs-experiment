@@ -21,7 +21,7 @@ spec:
         drop:
           - ALL
   volume:
-    replicas: 3
+    replicas: 4
     # kind: DaemonSet
     requests:
       storage: 10Gi
