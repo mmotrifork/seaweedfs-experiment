@@ -1,3 +1,4 @@
 resources:
-- global-network-policy.yaml
+- dns-network-policy.yaml
+- default-deny-network-policy.yaml
 - local-path-provisioner-network-policy.yaml
