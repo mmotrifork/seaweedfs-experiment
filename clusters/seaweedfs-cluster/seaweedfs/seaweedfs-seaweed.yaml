@@ -81,7 +81,7 @@ spec:
         drop:
           - ALL
   worker:
-    replicas: 2
+    replicas: 1
     jobType: "all"
     maxExecute: 4
     persistence:
