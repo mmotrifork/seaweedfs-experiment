@@ -13,3 +13,4 @@ spec:
   dependsOn:
     - name: bootstrap
       namespace: flux-system
+  wait: true

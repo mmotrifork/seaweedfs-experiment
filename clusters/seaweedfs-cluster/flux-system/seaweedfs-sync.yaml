@@ -13,3 +13,4 @@ spec:
   dependsOn:
     - name: seaweedfs-operator
       namespace: flux-system
+  wait: true

@@ -4,7 +4,16 @@ metadata:
   name: metrics-server
   namespace: metrics-server
 spec:
-  interval: 1h
+  interval: 10m
+  timeout: 10m
+  install:
+    crds: CreateReplace
+    remediation:
+      retries: 3
+  upgrade:
+    crds: CreateReplace
+    remediation:
+      retries: 3
   chart:
     spec:
       chart: metrics-server

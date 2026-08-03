@@ -13,3 +13,4 @@ spec:
   dependsOn:
     - name: test-app
       namespace: flux-system
+  wait: true

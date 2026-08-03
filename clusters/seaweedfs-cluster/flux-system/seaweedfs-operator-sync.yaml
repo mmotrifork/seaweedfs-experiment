@@ -13,3 +13,4 @@ spec:
   dependsOn:
     - name: kyverno
       namespace: flux-system
+  wait: true
