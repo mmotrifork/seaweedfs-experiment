@@ -1,7 +1,7 @@
 apiVersion: cilium.io/v2
 kind: CiliumClusterwideNetworkPolicy
 metadata:
-  name: intercept-all-dns
+  name: default-deny
 spec:
   endpointSelector:
     matchExpressions:
