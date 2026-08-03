@@ -16,4 +16,4 @@ spec:
     volumeBindingMode: Immediate
     allowVolumeExpansion: true
     parameters:
-      replication: "000"
+      replication: "001"
