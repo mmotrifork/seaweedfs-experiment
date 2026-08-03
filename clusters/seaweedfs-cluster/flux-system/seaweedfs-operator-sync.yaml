@@ -11,5 +11,5 @@ spec:
     kind: GitRepository
     name: flux-system
   dependsOn:
-    - name: bootstrap
+    - name: kyverno
       namespace: flux-system
