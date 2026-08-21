@@ -1,5 +1,6 @@
 resources:
 - network-policy.yaml
+- network-policy-jobs.yaml
 - helmrepository.yaml
 - helmrelease.yaml
 - namespace.yaml
